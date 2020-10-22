@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  
+  <title>My A-Frame Scene</title>
+  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
+    
+ </head>
+
+<body>
+	<a-scene>
+     
+    <a-assets>
+        <img id="floor" src="https://cdn.glitch.com/81478d1f-0693-4625-b249-2b3090e1fd6f%2Ffloor_2.png?v=1603096012458">
+    </a-assets>
+    
+    <a-sky  color="skyblue"></a-sky>
+    
+    <a-entity id="rig" position="0 0 5">
+        <a-camera id="camera"></a-camera> 
+        <a-plane material="color: #999999; src: #floor; repeat: 5 5" rotation="-90 0 0" scale="3 3 1" width="4" height="8"></a-plane>
+    </a-entity>
+    
+		
+    <rw-room position="-2 0 -2" material="color:Orange">
+			 
+      <rw-wall position="5 0 0"></rw-wall>
+			<rw-wall position="5 0 4"></rw-wall>
+			<rw-wall position="0 0 5"></rw-wall>
+			
+      <rw-wall position="0 0 0">
+		  		<rw-doorhole id="holeA"></rw-doorhole>
+		  		<rw-doorlink from="#holeA" to="#holeB" position="2.5 0 0"></rw-doorlink>
+			</rw-wall>
+      
+		</rw-room>
+    
+    
+		<rw-room position="0 0 -3">
+			
+      <rw-wall position=" 1 0 -1" material="color:#787"></rw-wall>
+			
+      <rw-wall position=" 1 0  1" material="color:#877">
+				  <rw-doorhole id="holeB"></rw-doorhole>
+			</rw-wall>
+			
+      <rw-wall position="-1 0  1" material="color:#878"></rw-wall>
+			
+		</rw-room>
+    <rw-ceiling position="80 10" material="color:red"></rw-ceiling>
+  
+  </a-scene>
+  
+ </body>
+</html>
