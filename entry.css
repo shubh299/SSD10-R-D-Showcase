@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+
+}
+.research{
+	z-index: 999;
+}
+.research .container2{
+	text-align: center;
+}
+.research .container2 .title{
+	margin-top: 50px;
+}
+.research .container1{
+	font-family: 'Poppins',sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+
+}
+.research .container1 .container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.research .container1 .container .box{
+	position: relative;
+	width: 200px;
+	padding: 40px;
+	background: #fff;
+	box-shadow: 0 5px 15px rgba(0,0,0);
+	border-radius: 4px;
+    margin: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
