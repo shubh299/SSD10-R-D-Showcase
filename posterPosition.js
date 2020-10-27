@@ -1,3 +1,7 @@
+/*
+    This script reads source from image_list and pastes the poster on walls dynamivcally
+*/
+
 var image_list=["https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg","https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg",
                         "https://1.bp.blogspot.com/-MdaQwrpT4Gs/Xdt-ff_hxEI/AAAAAAAAQXE/oOgnysGd9LwoFLMHJ0etngKzXxmQkWc5ACLcBGAsYHQ/s400/Beautiful-Backgrounds%2B%2528122%2529.jpg",
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTMVSK002MYAH_e5iPGYSw4ccLFMH7Gl0gaWw&usqp=CAU"];
