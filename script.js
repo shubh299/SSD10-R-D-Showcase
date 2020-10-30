@@ -1,5 +1,20 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
-
-// prints "hi" in the browser's dev tools console
-console.log("hi");
+AFRAME.registerComponent('backhome', {
+  
+  
+init function () {
+  
+  let homeworldelements = document.querySelectorAll(".homeworld");
+  let sky = document.querySelector("#skyview");
+                                   
+                                   
+  let gobackhome = () => {
+  sky.setAttribute("src", '#skyview');
+  homeworldelements.forEach(homeworldelements) => {
+  homeworldelement.setAttribute("visible", true)})
+  
+  }
+  
+  this.el.addEventListener("click", gobackhome);
+  
+  
+}});
