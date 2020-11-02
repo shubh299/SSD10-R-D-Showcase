@@ -2,33 +2,44 @@
     This script reads source from image_list and pastes the poster on walls dynamivcally
 */
 
+var image_width=3;
+var image_margin=2;
+
 var image_list=["https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg","https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg",
-                        "https://1.bp.blogspot.com/-MdaQwrpT4Gs/Xdt-ff_hxEI/AAAAAAAAQXE/oOgnysGd9LwoFLMHJ0etngKzXxmQkWc5ACLcBGAsYHQ/s400/Beautiful-Backgrounds%2B%2528122%2529.jpg",
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTMVSK002MYAH_e5iPGYSw4ccLFMH7Gl0gaWw&usqp=CAU"];
+                    "https://1.bp.blogspot.com/-MdaQwrpT4Gs/Xdt-ff_hxEI/AAAAAAAAQXE/oOgnysGd9LwoFLMHJ0etngKzXxmQkWc5ACLcBGAsYHQ/s400/Beautiful-Backgrounds%2B%2528122%2529.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTMVSK002MYAH_e5iPGYSw4ccLFMH7Gl0gaWw&usqp=CAU",
+                    "https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIFljE39hZfBwAHRvHVJ-5a3_nOMBo_EEZNw&usqp=CAU"];
 
 function rightWall(contentNum){
-    var wallLength=contentNum*2+(contentNum+1)*1;
+    var wallLength=contentNum*image_width+(contentNum+1)*image_margin;
+    if(wallLength<10){
+        wallLength=10;
+    }
     if(contentNum<1){
         return;
     }
+    document.querySelector("#right-wall").setAttribute("width",wallLength+0.04);
     var panels=$(".panel");
     var positionStart=0;
     if(contentNum%2==0){
-        positionStart=-(1.5+3*(contentNum/2-1));
+        positionStart=-((image_margin+image_width)/2+(image_margin+image_width)*(contentNum/2-1));
     }
     else{
-        positionStart=-(3*Math.floor(contentNum/2));
+        positionStart=-((image_margin+image_width)*Math.floor(contentNum/2));
     }
     var posX=image_list.length-2*contentNum;
-    posX=(posX*2+(posX+1))/2;
+    posX=(posX*image_width+(posX+1)*image_margin)/2;
+    document.querySelector("#front-wall").setAttribute("position",{x:0,y:5,z:-(wallLength/2+0.01)});
+    document.querySelector("#back-wall").setAttribute("position",{x:0,y:5,z:(wallLength/2+0.01)});
     for(var i=panels.length-contentNum;i<panels.length;i++){
         //console.log(i);
         var posZ=positionStart;
-        positionStart+=3;
-        panels[i].setAttribute('position',{x:posX,y:2,z:posZ});
+        positionStart+=(image_margin+image_width);
+        panels[i].setAttribute('position',{x:posX,y:3,z:posZ});
         panels[i].setAttribute('rotation',{x:0,y:-90,z:0});
-        panels[i].setAttribute('height',2);
-        panels[i].setAttribute('width',2);
+        panels[i].setAttribute('height',image_width);
+        panels[i].setAttribute('width',image_width);
         panels[i].setAttribute('color',"#FFFFFF")
         var children=panels[i].getElementsByTagName("a-image");
         var poster=children[0];
@@ -54,37 +65,42 @@ function rightWall(contentNum){
             poster.setAttribute('width',tempImageWidth);
             //console.log(i+" "+tempImageHeight+" "+tempImageWidth);
         });
+        var scale=(image_width+image_margin)/2;
         poster.setAttribute('src',image_list[i]);
         poster.setAttribute('position',{x:0,y:0,z:0.01});
-        poster.setAttribute('scale',{x:1.5,y:1.5,z:1.5});
+        poster.setAttribute('scale',{x:scale,y:scale,z:scale});
         //console.log(panels[i]);
     }
 }
 
 function leftWall(contentNum){
-    var wallLength=contentNum*2+(contentNum+1)*1;
+    var wallLength=contentNum*image_width+(contentNum+1)*image_margin;
+    if(wallLength<10){
+        wallLength=10;
+    }
     if(contentNum<1){
         return;
     }
+    document.querySelector("#left-wall").setAttribute("width",wallLength+0.04);
     var panels=$(".panel");
     var positionStart=0;
     if(contentNum%2==0){
-        positionStart=-(1.5+3*(contentNum/2-1));
+        positionStart=-((image_margin+image_width)/2+(image_margin+image_width)*(contentNum/2-1));
     }
     else{
-        positionStart=-(3*Math.floor(contentNum/2));
+        positionStart=-((image_margin+image_width)*Math.floor(contentNum/2));
     }
     var posX=image_list.length-2*contentNum;
-    posX=(posX*2+(posX+1))/2;
+    posX=(posX*image_width+(posX+1)*image_margin)/2;
     for(var i=0;i<contentNum;i++){
         //console.log(i);
         var posZ=positionStart;
-        positionStart+=3;
-        panels[i].setAttribute('position',{x:-posX,y:2,z:posZ});
+        positionStart+=(image_margin+image_width);
+        panels[i].setAttribute('position',{x:-posX,y:3,z:posZ});
         panels[i].setAttribute('rotation',{x:0,y:90,z:0});
         panels[i].setAttribute('color',"#FFFFFF")
-        panels[i].setAttribute('height',2);
-        panels[i].setAttribute('width',2);
+        panels[i].setAttribute('height',image_width);
+        panels[i].setAttribute('width',image_width);
         var children=panels[i].getElementsByTagName("a-image");
         var poster=children[0];
         poster.setAttribute('class','poster');
@@ -109,36 +125,45 @@ function leftWall(contentNum){
             poster.setAttribute('width',tempImageWidth);
             //console.log(i+" "+tempImageHeight+" "+tempImageWidth);
         });
+        var scale=(image_width+image_margin)/2;
         poster.setAttribute('src',image_list[i]);
         poster.setAttribute('position',{x:0,y:0,z:0.01});
-        poster.setAttribute('scale',{x:1.5,y:1.5,z:1.5});
+        poster.setAttribute('scale',{x:scale,y:scale,z:scale});
         //console.log(panels[i]);
     }
 }
 
 function frontWall(contentNum){
-    var wallLength=contentNum*2+(contentNum+1)*1;
+    var wallLength=contentNum*image_width+(contentNum+1)*image_margin;
+    if(wallLength<10){
+        wallLength=10;
+    }
     if(contentNum<1){
         return;
     }
+    document.querySelector("#right-wall").setAttribute("position",{x:-(wallLength/2+0.01),y:5,z:0});
+    document.querySelector("#left-wall").setAttribute("position",{x:(wallLength/2+0.01),y:5,z:0});
+    document.querySelector("#front-wall").setAttribute("width",wallLength);
+    document.querySelector("#back-wall").setAttribute("width",wallLength);
     var panels=$(".panel");
     var positionStart=0;
     if(contentNum%2==0){
-        positionStart=-(1.5+3*(contentNum/2-1));
+        positionStart=-((image_margin+image_width)/2+(image_margin+image_width)*(contentNum/2-1));
     }
     else{
-        positionStart=-(3*Math.floor(contentNum/2));
+        positionStart=-((image_margin+image_width)*Math.floor(contentNum/2));
     }
     var posZ=(image_list.length-contentNum)/2;
-    posZ=(posZ*2+(posZ+1))/2;
-    for(var i=contentNum-1;i<=panels.length-contentNum;i++){
+    posZ=document.querySelector("#left-wall").getAttribute("width")/2-0.02;
+    var end=(image_list.length-contentNum)/2;
+    for(var i=end;i<panels.length-end;i++){
         console.log(i);
         var posX=positionStart;
-        positionStart+=3;
-        panels[i].setAttribute('position',{x:posX,y:2,z:-posZ});
+        positionStart+=(image_margin+image_width);
+        panels[i].setAttribute('position',{x:posX,y:3,z:-posZ});
         panels[i].setAttribute('rotation',{x:0,y:0,z:0});
-        panels[i].setAttribute('height',2);
-        panels[i].setAttribute('width',2);
+        panels[i].setAttribute('height',image_width);
+        panels[i].setAttribute('width',image_width);
         var children=panels[i].getElementsByTagName("a-image");
         var poster=children[0];
         poster.setAttribute('class','poster');
@@ -163,9 +188,10 @@ function frontWall(contentNum){
             poster.setAttribute('width',tempImageWidth);
             //console.log(i+" "+tempImageHeight+" "+tempImageWidth);
         });
+        var scale=(image_width+image_margin)/2;
         poster.setAttribute('src',image_list[i]);
         poster.setAttribute('position',{x:0,y:0,z:0.01});
-        poster.setAttribute('scale',{x:1.5,y:1.5,z:1.5});
+        poster.setAttribute('scale',{x:scale,y:scale,z:scale});
         //console.log(panels[i]);
     }
 }
@@ -185,6 +211,13 @@ $(document).ready(function(){
     rightWall(sideWallContent);
     leftWall(sideWallContent);
     frontWall(frontWallContent);
+
+    var frontWallLength=document.querySelector("#front-wall").getAttribute("width");
+    var sideWallLength=document.querySelector("#left-wall").getAttribute("width");
+    document.querySelector("#floor").setAttribute("height",sideWallLength);
+    document.querySelector("#ceiling_view").setAttribute("height",frontWallLength);
+    document.querySelector("#floor").setAttribute("width",frontWallLength);
+    document.querySelector("#ceiling_view").setAttribute("width",sideWallLength);
 
     /*var positionStart=-2.2*Math.floor(i/2);
 

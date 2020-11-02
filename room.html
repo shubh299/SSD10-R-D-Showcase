@@ -4,8 +4,8 @@
   <head>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"> </script>
     <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
-    <script src="public/js/script.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="posterPosition.js"></script>
     
   </head>
   
@@ -21,7 +21,7 @@
          <img id="ceiling" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Fceiling.png?v=1604056371072" crossorigin="anonymous">"
        </a-assets>
              
-       <a-entity id="camera" position="0 1.6 0" camera look-controls wasd-controls>
+       <a-entity id="camera" position="0 3 0" camera look-controls wasd-controls>
         <a-entity cursor="rayOrigin: mouse"></a-entity>
        </a-entity>
       
@@ -29,79 +29,14 @@
        
        <a-entity id="room" class="homeworld">
          <a-plane id="floor" rotation="-90 90 0" width="30" height="30" src="#woodfloor" repeat="4 4"></a-plane>
-         <a-plane position="0 5 -15" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
-         <a-plane position="-2.5 5 15" rotation="0 180 0" width="25" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
-         <a-plane position="-15 5 0" rotation="0 90 0" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
-         <a-plane position="15 5 0" rotation="0 -90 0" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
+         <a-plane id="front-wall" position="0 5 -15" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
+         <a-plane id="back-wall" position="-2.5 5 15" rotation="0 180 0" width="25" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
+         <a-plane id="right-wall" position="-15 5 0" rotation="0 90 0" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
+         <a-plane id="left-wall" position="15 5 0" rotation="0 -90 0" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
          <a-plane id ="ceiling_view" position="0 10 0" scale="1 1 1" width="30" height="30" src="#ceiling" color="#ffd480" repeat="2 1" rotation="90 0 0"></a-plane>
        </a-entity>
        
-       <a-entity id="posterdisplay_1" class="homeworld" position="0 3 -8.9" width="3.5" height="3.5">
-         <a-plane id="posterframe_1" color="#000080" position="0 1 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_1" src="#poster" position="0 1 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_1" position="0 -1 .01" height=".6" width="auto" color="#191817"
-          text="value: Poster1: Robotic research center, IIIT Hyderabad; width: 3; align: center"></a-plane>
-       </a-entity>
        
-        <a-entity id="posterdisplay_2" class="homeworld" position="-3 3 -8.9" width="3.5" height="3.5">
-         <a-plane id="posterframe_2" color="#000080" position="-3 1 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_2" src="#poster" position="-3 1 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_2" position="-3 -1 .01" height=".6" width="auto" color="#191817"
-          text="value: Poster2: Data science and analytics center, IIIT Hyderabad; width: 3; align: center"></a-plane>
-       </a-entity>
-        
-      <a-entity id="posterdisplay_3" class="homeworld" position="3 3 -8.9" width="3.5" height="3.5">
-         <a-plane id="posterframe_3" color="#000080" position="3 1 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_3" src="#poster" position="3 1 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_3" position="3 -1 .01" height=".6" width="auto" color="#191817"
-          text="value: Poster3: Language Technologies Research center; width: 3; align: center"></a-plane>
-       </a-entity>
-       
-       <a-entity id="posterdisplay_4" class="homeworld" position="-9 2 -8.9" width="3.5" height="3.5" rotation="0 90 0">
-         <a-plane id="posterframe_4" color="#000080" position="-6 2 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_4" src="#poster" position="-6 2 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_4" position="-6 -0.03 .01" height=".6" width="auto" color="#191817"
-          text="value: Poster4: Cognitive science, IIIT Hyderabad; width: 3; align: center"></a-plane>
-       </a-entity>
-       
-         
-       <a-entity id="posterdisplay_5" class="homeworld" position="9 2 -8.9" width="3.5" height="3.5" rotation="0 -90 0">
-         <a-plane id="posterframe_5" color="#000080" position="6 2 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_5" src="#poster" position="6 2 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_5" position="6 -0.03 .01" height=".6" width="auto" color="#191817"
-          text="value: Poster5: Center for visual information technology, IIIT Hyderabad; width: 2; align: center"></a-plane>
-       </a-entity>
-         
-       <a-entity id="posterdisplay_6" class="homeworld" position="-9 2 -8.9" width="3.5" height="3.5" rotation="0 90 0">
-         <a-plane id="posterframe_6" color="#000080" position="-12 2 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_6" src="#poster" position="-12 2 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_6" position="-12 -0.03 .01" height=".6" width="auto" color="#191817"
-          text="value: Poster6: Software engineering research center, IIIT Hyderabad; width: 3; align: center"></a-plane>
-       </a-entity>
-      
-        
-       <a-entity id="posterdisplay_7" class="homeworld" position="9 2 -8.9" width="2.5" height="2.5" rotation="0 -90 0">
-         <a-plane id="posterframe_7" color="#000080" position="12 2 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_7" src="#poster" position="12 2 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_7" position="12 -0.03 .01" height=".6" width="auto" color="#191817"
-          text="value: Poster7: Machine learning lab, IIIT Hyderabad; width: 3; align: center"></a-plane>
-       </a-entity>
-        
-        
-      <a-entity id="posterdisplay_8" class="homeworld" position="-9 1.8 8.9" width="2.5" height="2.5" rotation="0 180 0">
-         <a-plane id="posterframe_8" color="#000080" position="-6 2 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_8" src="#poster" position="-6 2 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_8" position="-6 -0.01 .01" height=".6" width="auto" color="#191817"
-          text="value: Poster8: Kohli centre for intelligent systems, IIIT Hyderabad; width: 3; align: center"></a-plane>
-       </a-entity>
-        
-        
-       <a-entity id="posterdisplay_9" class="homeworld" position="-9 1.8 8.9" width="2.5" height="2.5" rotation="0 180 0">
-         <a-plane id="posterframe_9" color="#000080" position="-12 2 .1" width="3.5" height="3.5"></a-plane>
-         <a-plane id="posteroutline_9" src="#poster" position="-12 2 .1" width="3.2" height="3.2" ></a-plane>
-         <a-plane id="postercaption_9" position="-12 -0.01 .1" height=".6" width="auto" color="#191817"
-          text="value: Poster9: Center for VLSI and Embedded Systems Technology, IIIT Hyderabad; width: 3; align: center"></a-plane>
-       </a-entity>
         
        <a-circle id="button" position="0 .1 0" rotation="-90 0 0" backhome></a-circle>
       
