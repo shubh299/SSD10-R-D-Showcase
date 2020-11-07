@@ -2,8 +2,9 @@
     This script reads source from image_list and pastes the poster on walls dynamivcally
 */
 
-var image_width=3;
-var image_margin=2;
+var image_width=5;
+var image_margin=4;
+var posterHeight=5;
 
 var image_list=["https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg","https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg",
                     "https://1.bp.blogspot.com/-MdaQwrpT4Gs/Xdt-ff_hxEI/AAAAAAAAQXE/oOgnysGd9LwoFLMHJ0etngKzXxmQkWc5ACLcBGAsYHQ/s400/Beautiful-Backgrounds%2B%2528122%2529.jpg",
@@ -36,7 +37,7 @@ function rightWall(contentNum){
         //console.log(i);
         var posZ=positionStart;
         positionStart+=(image_margin+image_width);
-        panels[i].setAttribute('position',{x:posX,y:3,z:posZ});
+        panels[i].setAttribute('position',{x:posX,y:posterHeight,z:posZ});
         panels[i].setAttribute('rotation',{x:0,y:-90,z:0});
         panels[i].setAttribute('height',image_width);
         panels[i].setAttribute('width',image_width);
@@ -96,7 +97,7 @@ function leftWall(contentNum){
         //console.log(i);
         var posZ=positionStart;
         positionStart+=(image_margin+image_width);
-        panels[i].setAttribute('position',{x:-posX,y:3,z:posZ});
+        panels[i].setAttribute('position',{x:-posX,y:posterHeight,z:posZ});
         panels[i].setAttribute('rotation',{x:0,y:90,z:0});
         panels[i].setAttribute('color',"#FFFFFF")
         panels[i].setAttribute('height',image_width);
@@ -160,7 +161,7 @@ function frontWall(contentNum){
         console.log(i);
         var posX=positionStart;
         positionStart+=(image_margin+image_width);
-        panels[i].setAttribute('position',{x:posX,y:3,z:-posZ});
+        panels[i].setAttribute('position',{x:posX,y:posterHeight,z:-posZ});
         panels[i].setAttribute('rotation',{x:0,y:0,z:0});
         panels[i].setAttribute('height',image_width);
         panels[i].setAttribute('width',image_width);
