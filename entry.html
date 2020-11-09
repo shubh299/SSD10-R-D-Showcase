@@ -1,101 +1,133 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>My A-Frame Scene</title>
-  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
-   <script src="https://unpkg.com/aframe-sun-sky-component@^3.0.0/dist/aframe-sun-sky-component.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="entry.css">
-</head>
+  <head>
+    <title>My A-Frame Scene</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-sun-sky-component@^3.0.0/dist/aframe-sun-sky-component.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="posterPosition.js"></script>
+    <link rel="stylesheet" type="text/css" href="entry.css">
+  </head>
 
-<body>
-    <a-scene class="scene">
-         <a-sky color="#6EBAA7"></a-sky>
-        <rw-room position="-6 0 -6" material="color:#DC143C">
+  <body>
+      <a-scene class="scene">
+        <a-assets>
+          <img id="woodfloor" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Ffloor_2.png?v=1603532991772" crossorigin="anonymous">
+          <img id="wall" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Fbrickwall.jpeg?v=1604055584728" crossorigin="anonymous">
+          <img id="skyview" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Fsky.jpg?v=1604054994166" crossorigin="anonymous">
+          <img id="poster" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Fposter.jpg?v=1603524454155" crossorigin="anonymous">
+          <img id="ceiling" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Fceiling.png?v=1604056371072" crossorigin="anonymous">"
+        </a-assets>
+        <a-entity id="entryScene">
+          <a-sky color="#6EBAA7"></a-sky>
+          <rw-room position="-6 0 -6" material="color:#DC143C">
             <rw-wall position="12 0 0">
-                <a-entity text="value: Hello World;"></a-entity>
-                <section class="research" id="research">
-    <div class="container2" style=" z-index: 999; overflow: hidden; position: fixed; left: 300px; top: 50px;">
-    <h2 class="title">WELCOME TO IIIT HYDERABAD R&D SHOWCASE 2020</h2></div>
-    <div class="container1" style="position: fixed; left: 0; top: 0; z-index: 999; overflow: hidden">
-    <div class="container">
-        
-      <!--<div class="box">
-          
-          <div class="content">
-            <center><h3>KCIS</h3></center>
-          </div>
-      </div>
-      <div class="box">
-          
-          <div class="content">
-            <center><h3>SCRC</h3></center>
-          </div>
-      </div>
-      <div class="box">
-          
-          <div class="content">
-            <center><h3>SPCRC</h3></center>
-          </div>
-      </div>
-      <div class="box">
-          
-          <div class="content">
-            <center><h3>DSAC</h3></center>
-          </div>
-      </div>-->
-      <!--<div class="box">
-          
-          <div class="content">
-            <center><h3>LTRC</h3></center>
-          </div>
-      </div>-->
-      <!--<div class="box">
-          
-          <div class="content">
-            <center><h3>CVIT</h3></center>
-          </div>
-      </div>
-      <div class="box">
-          
-          <div class="content">
-            <center><h3>CSTAR</h3></center>
-          </div>
-      </div>
-      <div class="box">
-          
-          <div class="content">
-            <center><h3>CVIT</h3></center>
-          </div>
-      </div>
-      <div class="box">
-          
-          <div class="content">
-            <center><h3>SERC</h3></center>
-          </div>
-      </div>
-      <div class="box">
-          
-          <div class="content">
-            <center><h3>ROBOTICS</h3></center>
-          </div>
-     </div>-->
-     
+              <a-entity text="value: Hello World;"></a-entity>
+              <section class="research" id="research">
+                <div class="container2" style=" z-index: 999; overflow: hidden; position: fixed; left: 300px; top: 50px;">                
+                  <h2 class="title">WELCOME TO IIIT HYDERABAD R&D SHOWCASE 2020</h2>
+                </div>
+                <div class="container1" style="position: fixed; left: 0; top: 0; z-index: 999; overflow: hidden">
+                  <div class="container">
+                            
+                          <!--<div class="box">
+                              
+                              <div class="content">
+                                <center><h3>KCIS</h3></center>
+                              </div>
+                          </div>
+                          <div class="box">
+                              
+                              <div class="content">
+                                <center><h3>SCRC</h3></center>
+                              </div>
+                          </div>
+                          <div class="box">
+                              
+                              <div class="content">
+                                <center><h3>SPCRC</h3></center>
+                              </div>
+                          </div>
+                          <div class="box">
+                              
+                              <div class="content">
+                                <center><h3>DSAC</h3></center>
+                              </div>
+                          </div>-->
+                          <!--<div class="box">
+                              
+                              <div class="content">
+                                <center><h3>LTRC</h3></center>
+                              </div>
+                          </div>-->
+                          <!--<div class="box">
+                              
+                              <div class="content">
+                                <center><h3>CVIT</h3></center>
+                              </div>
+                          </div>
+                          <div class="box">
+                              
+                              <div class="content">
+                                <center><h3>CSTAR</h3></center>
+                              </div>
+                          </div>
+                          <div class="box">
+                              
+                              <div class="content">
+                                <center><h3>CVIT</h3></center>
+                              </div>
+                          </div>
+                          <div class="box">
+                              
+                              <div class="content">
+                                <center><h3>SERC</h3></center>
+                              </div>
+                          </div>
+                          <div class="box">
+                              
+                              <div class="content">
+                                <center><h3>ROBOTICS</h3></center>
+                              </div>
+                        </div>-->
+                        
 
-</div>
-
-    </div>
- </section>
+                  </div>
+                </div>
+              </section>
             </rw-wall>
-            <rw-wall position="12 0 12"></rw-wall>
-            <rw-wall position="0 0 12"></rw-wall>
-            <rw-wall position="0 0 0"></rw-wall>
-            
-        </rw-room>
-        <a-plane rotation="-90 0 0" width="30" height="30" color="green"></a-plane>
+                <rw-wall position="12 0 12"></rw-wall>
+                <rw-wall position="0 0 12"></rw-wall>
+                <rw-wall position="0 0 0"></rw-wall>
+                
+            </rw-room>
+            <a-plane rotation="-90 0 0" width="30" height="30" color="green"></a-plane>
+        </a-entity>
         
-    </a-scene>
-</body>
+        <a-entity id="roomScene" visible="false">
+                
+          <a-entity id="camera" position="0 4 0" camera look-controls wasd-controls>
+            <a-entity cursor="rayOrigin: mouse"></a-entity>
+          </a-entity>
+        
+          <a-sky id="sky" src="#skyview"></a-sky>
+          
+          <a-entity id="room" class="homeworld">
+            <a-plane id="floor" rotation="-90 90 0" width="30" height="30" src="#woodfloor" repeat="4 4"></a-plane>
+            <a-plane id="front-wall" position="0 5 -15" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
+            <a-plane id="back-wall" position="-2.5 5 15" rotation="0 180 0" width="25" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
+            <a-plane id="right-wall" position="-15 5 0" rotation="0 90 0" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
+            <a-plane id="left-wall" position="15 5 0" rotation="0 -90 0" width="30" height="10" src="#wall" color="#ffd480" repeat="2 1"></a-plane>
+            <a-plane id ="ceiling_view" position="0 10 0" scale="1 1 1" width="30" height="30" src="#ceiling" color="#ffd480" repeat="2 1" rotation="90 0 0"></a-plane>
+          </a-entity>
+          <a-entity id="posters">
+
+          </a-entity>
+        </a-entity>
+      </a-scene>
+
+  </body>
    <script src="entry.js"></script>
 </html>
