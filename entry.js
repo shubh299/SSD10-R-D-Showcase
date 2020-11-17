@@ -29,6 +29,7 @@ let requestURL = 'https://rawcdn.githack.com/saivishwakgangam/SSD-LAB-ACTIVITY-2
     {
       var text = $(this).text();
       console.log(text);
+      gotoPosterRoom(text);
     });
 
 
