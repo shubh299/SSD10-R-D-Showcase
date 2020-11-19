@@ -12,7 +12,7 @@ var posterHeight=5;
                     "https://image.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-260nw-407021107.jpg",
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIFljE39hZfBwAHRvHVJ-5a3_nOMBo_EEZNw&usqp=CAU"];
 */
-function rightWall(contentNum){
+function rightWall(contentNum,image_list){
     var wallLength=contentNum*image_width+(contentNum+1)*image_margin;
     if(wallLength<10){
         wallLength=10;
@@ -33,6 +33,7 @@ function rightWall(contentNum){
     posX=(posX*image_width+(posX+1)*image_margin)/2;
     document.querySelector("#front-wall").setAttribute("position",{x:0,y:5,z:-(wallLength/2+0.01)});
     document.querySelector("#back-wall").setAttribute("position",{x:0,y:5,z:(wallLength/2+0.01)});
+    document.querySelector('#door1').setAttribute("position",{x:0,y:5,z:(wallLength/2)});
     for(var i=panels.length-contentNum;i<panels.length;i++){
         //console.log(i);
         var posZ=positionStart;
@@ -74,7 +75,7 @@ function rightWall(contentNum){
     }
 }
 
-function leftWall(contentNum){
+function leftWall(contentNum,image_list){
     var wallLength=contentNum*image_width+(contentNum+1)*image_margin;
     if(wallLength<10){
         wallLength=10;
@@ -134,7 +135,7 @@ function leftWall(contentNum){
     }
 }
 
-function frontWall(contentNum){
+function frontWall(contentNum,image_list){
     var wallLength=contentNum*image_width+(contentNum+1)*image_margin;
     if(wallLength<10){
         wallLength=10;
@@ -158,7 +159,7 @@ function frontWall(contentNum){
     posZ=document.querySelector("#left-wall").getAttribute("width")/2-0.02;
     var end=(image_list.length-contentNum)/2;
     for(var i=end;i<panels.length-end;i++){
-        console.log(i);
+        //console.log(i);
         var posX=positionStart;
         positionStart+=(image_margin+image_width);
         panels[i].setAttribute('position',{x:posX,y:posterHeight,z:-posZ});
@@ -207,9 +208,9 @@ function addPosters(image_list){
     var sideWallContent=Math.floor(image_list.length/3);
     var frontWallContent=image_list.length-2*sideWallContent;
     
-    rightWall(sideWallContent);
-    leftWall(sideWallContent);
-    frontWall(frontWallContent);
+    rightWall(sideWallContent,image_list);
+    leftWall(sideWallContent,image_list);
+    frontWall(frontWallContent,image_list);
 
     var frontWallLength=document.querySelector("#front-wall").getAttribute("width");
     var sideWallLength=document.querySelector("#left-wall").getAttribute("width");
@@ -232,7 +233,15 @@ function gotoPosterRoom(roomName){
 }
 
 function gotoEntryRoom(){
+    document.querySelector('#camera').setAttribute('position',{x:0,y:4,z:0});
+    document.querySelector('#camera').setAttribute('rotation',{x:0,y:0,z:0});
     document.querySelector('#roomScene').setAttribute('visible','false');
     document.querySelector('#entryScene').setAttribute('visible','true');
+    $('.research').css('visibility','visible');
     removePosters();
 }
+
+$('#door1').click(function (e) { 
+    gotoEntryRoom();
+    console.log('back');
+});
