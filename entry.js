@@ -8,7 +8,7 @@ $(window).on('load', function(){
         $( "#loadingDiv" ).remove(); //makes page more lightweight 
     });  
   }
-let requestURL = 'https://rawcdn.githack.com/saivishwakgangam/SSD-LAB-ACTIVITY-2/f3da24ed67ea4bc780860509b1e2d2fb26c83027/research_centers%20.json';
+let requestURL = 'https://cdn.glitch.com/c5c31171-7ad3-4759-8f91-959c929d549a%2Fresearch_centers.json?v=1605788873409';
     let request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'text';
