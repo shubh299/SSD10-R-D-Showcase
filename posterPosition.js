@@ -188,7 +188,6 @@ function frontWall(contentNum,image_list){
             }
             poster.setAttribute('height',tempImageHeight);
             poster.setAttribute('width',tempImageWidth);
-            //console.log(i+" "+tempImageHeight+" "+tempImageWidth);
         });
         var scale=(image_width+image_margin)/2;
         poster.setAttribute('src',image_list[i]);
@@ -225,6 +224,8 @@ function removePosters(){
 }
 
 function gotoPosterRoom(roomName){
+    document.querySelector('#camera').setAttribute('position',{x:0,y:4,z:0});
+    //document.querySelector('#camera').setAttribute('rotation',{x:0,y:0,z:0});
     document.querySelector('#entryScene').setAttribute('visible','false');
     document.querySelector('#roomScene').setAttribute('visible','true');
     $('.research').css('visibility','hidden');
@@ -234,7 +235,6 @@ function gotoPosterRoom(roomName){
 
 function gotoEntryRoom(){
     document.querySelector('#camera').setAttribute('position',{x:0,y:4,z:0});
-    document.querySelector('#camera').setAttribute('rotation',{x:0,y:0,z:0});
     document.querySelector('#roomScene').setAttribute('visible','false');
     document.querySelector('#entryScene').setAttribute('visible','true');
     $('.research').css('visibility','visible');
