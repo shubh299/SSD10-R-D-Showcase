@@ -1,10 +1,25 @@
 {
     "SERC": ["https://serc.res.in/sites/default/files/xbanner_img2_0_1.jpg.pagespeed.ic.7a4UzQDSxU.jpg",
-    		 "https://serc.res.in/sites/default/files/xbanner-4-polital_0.jpg.pagespeed.ic.4OIYQYAWgx.jpg"],
+             "https://serc.res.in/sites/default/files/xbanner-4-polital_0.jpg.pagespeed.ic.4OIYQYAWgx.jpg",
+             "https://i1.wp.com/www.knowledgewala.com/wp-content/uploads/2016/06/project1.jpg?fit=272%2C185",
+             "https://i.pinimg.com/originals/0c/01/0e/0c010edee3e9fe05defa7623f37a9620.jpg",
+             "https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram-2-8.png",
+             "https://process.filestackapi.com/cache=expiry:max/resize=width:700/1L1wbcCQg2ngajmOjHZV"],
     
-    "CVIT": ["https://www.iiit.ac.in/img/cvit.jpg","https://cvit.iiit.ac.in/images/Projects/Indiscapes/indiscapes19.png"],
+    "CVIT": ["https://www.iiit.ac.in/img/cvit.jpg","https://cvit.iiit.ac.in/images/Projects/Indiscapes/indiscapes19.png",
+             "https://previews.123rf.com/images/medveh/medveh1207/medveh120700053/14559496-template-for-visual-presentation-in-information-technology.jpg",
+             "https://miro.medium.com/max/543/1*In-T72IJcC0Q4YquMDPceg.jpeg",
+             "https://miro.medium.com/max/700/1*g__jiesLRIfCRefVG69Pfw.gif"],
     
-    "CSTAR": [],
+    "CSTAR": ["https://www.chalmers.se/SiteCollectionImages/education/Programmatriser/Computer%20Systems%20and%20Networks_MPCSN.jpg",
+              "https://www.f5.com/content/dam/f5-labs-v2/article/articles/edu/20190709_what_is_the_cia_triad/cia_triad.png",
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Operating_system_placement.svg/165px-Operating_system_placement.svg.png",
+              "https://www.researchgate.net/profile/Zhiwen_Hu/publication/332615391/figure/fig2/AS:751200605585410@1556111589418/Topology-of-the-information-security-lab.png"],
 
-	"DSAC": ["https://www.iiit.ac.in/img/cde.jpeg"]
+    "DSAC": ["https://www.iiit.ac.in/img/cde.jpeg",
+             "https://miro.medium.com/max/700/0*UnyAXHeTIcy958_Q.jpg",
+             "https://intellipaat.com/blog/wp-content/uploads/2016/11/What-is-Data-Science.docx.jpg",
+             "https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/04/Data-Science-Applications-01.jpg",
+             "https://assets-global.website-files.com/5deb974b5176872b2c106aba/5e3c3add630a1585791ff8a9_4dda7c5dc3564bce88dfa5114c53a774.png",
+             "https://images.squarespace-cdn.com/content/v1/5ccb715016b640627a1c2782/1586959580052-XGOWRQELVKPB1RBOFEZJ/ke17ZwdGBToddI8pDm48kJiz0-5RQxyREcUG2X9xr3pZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxXB25TwofyowEM6_y2S9lvNGHlNQPngrDv5DttLchSN6CijSWCoS1EuT4OnDU_2Pg/data-science-disciplines-calvin-andrus.jpg?format=750w"]
 }
