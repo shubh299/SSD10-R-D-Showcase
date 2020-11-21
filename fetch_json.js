@@ -1,4 +1,4 @@
-window.static_url="https://cdn.glitch.com/c5c31171-7ad3-4759-8f91-959c929d549a%2Fresearch_centers.json?v=1605788873409";//https://vagabond-maple-skink.glitch.me/research_centers.json";
+window.static_url="https://wandering-sour-toy.glitch.me/research_centers.json";//https://vagabond-maple-skink.glitch.me/research_centers.json";
 function fetch_json_object(){
     var result = "";
     $.ajax({
