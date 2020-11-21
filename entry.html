@@ -13,6 +13,12 @@
   <body>
       <a-scene class="scene">
         <a-assets>
+          <img id="grassfloor" src="https://cdn.glitch.com/23d4f40a-08dc-445c-ab59-e63b1ddf2a0a%2FEntrance_poster_room_floor.jpg?v=1604748892346" crossorigin="anonymous">
+          <img id="sky" src="https://cdn.glitch.com/23d4f40a-08dc-445c-ab59-e63b1ddf2a0a%2Fsky.jpg?v=1604750284352" crossorigin="anonymous">
+          <img id="IIIThydLogo" src="https://cdn.glitch.com/23d4f40a-08dc-445c-ab59-e63b1ddf2a0a%2FIIIT%20Hyderabad.jpeg?v=1604752455373" crossorigin="anonymous">
+          <img id="poster_man" src="https://cdn.glitch.com/23d4f40a-08dc-445c-ab59-e63b1ddf2a0a%2Fman.png?v=1605840678692" crossorigin="anonymous">
+          <img id="tree" src="https://cdn.glitch.com/23d4f40a-08dc-445c-ab59-e63b1ddf2a0a%2Ftree.png?v=1605840032583" crossorigin="anonymous">
+          <img id="tree" src="https://cdn.glitch.com/23d4f40a-08dc-445c-ab59-e63b1ddf2a0a%2Ftree.png?v=1605840032583" crossorigin="anonymous">
           <img id="woodfloor" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Ffloor_2.png?v=1603532991772" crossorigin="anonymous">
           <img id="wall" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Fbrickwall.jpeg?v=1604055584728" crossorigin="anonymous">
           <img id="skyview" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Fsky.jpg?v=1604054994166" crossorigin="anonymous">
@@ -21,26 +27,55 @@
           <img id="door" src="https://cdn.glitch.com/f10266f3-006d-48ba-9878-16f6c6ab2e2a%2Fdoor.jpg?v=1605786336918" crossorigin="anonymous">
         </a-assets>
         <a-entity id="entryScene" visible="true">
-          <a-sky color="#6EBAA7"></a-sky>
-          <rw-room position="-6 0 -6" material="color:#DC143C">
-            <rw-wall position="12 0 0">
-              <a-entity text="value: Hello World;"></a-entity>
-              <section class="research" id="research">
-                <div class="container2" style=" z-index: 999; overflow: hidden; position: fixed; left: 300px; top: 50px;">                
-                  <h2 class="title">WELCOME TO IIIT HYDERABAD R&D SHOWCASE 2020</h2>
+         <a-image id="tree1" width="5" height="4" src="#tree" position="-6.5 2 0" ></a-image>
+         <a-image id="tree2" width="5" height="4" src="#tree" position="6.5 2 0" ></a-image>
+         
+           <a-entity id="camera" position="0 1.6 4.5" camera look-controls wasd-controls>
+             <a-entity cursor="rayOrigin: mouse"></a-entity>
+            </a-entity>
+           
+         
+        
+           <a-sky src="#sky"></a-sky>
+              <a-plane id="floor" rotation="-90 90 0" width="8" height="15" src="#grassfloor" repeat="12 12"></a-plane>
+              
+         
+         
+          <a-entity id="Logo_1" position="0 1 0 " width="9" height="5" rotation="0 0 0">
+              
+              <a-plane id="Logodisplay_1" src="#IIIThydLogo" position="0 1 0" width="9" height="5"></a-plane>
+              
+            </a-entity>
+         
+            
+         <rw-room position="-2 0 -2" material="color:#53074C">
+           <rw-wall position="3 0 0" width="8" height="4">
+            <section class="research" id="research">
+              <div class="container2" style=" z-index: 999; overflow: hidden; position: fixed; left: 300px; top: 50px;">                
+                <h2 class="title">WELCOME TO IIIT HYDERABAD R&D SHOWCASE 2020</h2>
+              </div>
+              <div class="container1" style="position: fixed; left: 0; top: 0; z-index: 999; overflow: hidden">
+                <div class="container">
                 </div>
-                <div class="container1" style="position: fixed; left: 0; top: 0; z-index: 999; overflow: hidden">
-                  <div class="container">
-                  </div>
-                </div>
-              </section>
-            </rw-wall>
-                <rw-wall position="12 0 12"></rw-wall>
-                <rw-wall position="0 0 12"></rw-wall>
-                <rw-wall position="0 0 0"></rw-wall>
-                
-            </rw-room>
-            <a-plane rotation="-90 0 0" width="30" height="30" color="green"></a-plane>
+              </div>
+            </section>
+           </rw-wall>
+           <rw-wall position="10 0 3" width="8" height="4"></rw-wall>
+           <rw-wall position="-4 0 5" width="8" height="4"></rw-wall>
+           <rw-wall position="0 0 0" width="8" height="4">
+               <rw-doorhole id="holeA"></rw-doorhole>
+               <rw-doorlink from="#holeA" to="#holeB" position="2.5 0 0"></rw-doorlink>
+           </rw-wall>
+         </rw-room>
+         <rw-room position="0 0 -3">
+           <rw-wall position="1 0 -1" material="color:#788"></rw-wall>
+           <rw-wall position="1 0  1" material="color:#878">
+             <rw-doorhole id="holeB"></rw-doorhole>
+           </rw-wall>
+           <rw-wall position="-1 0  1" material="color:#878"></rw-wall>
+           <rw-wall position="-1 0 -1" material="color:#778"></rw-wall>
+         </rw-room>
+            
         </a-entity>
         
         <a-entity id="roomScene" visible="false">
@@ -73,3 +108,4 @@
     <script src="posterPosition.js"></script>
     <script src="entry.js"></script>
 </html>
+   
