@@ -233,15 +233,16 @@ function gotoPosterRoom(roomName){
     addPosters(image_list);
 }
 
-function gotoEntryRoom(){
+/*function gotoEntryRoom(){
     document.querySelector('#camera').setAttribute('position',{x:0,y:4,z:0});
     document.querySelector('#roomScene').setAttribute('visible','false');
     document.querySelector('#entryScene').setAttribute('visible','true');
     $('.research').css('visibility','visible');
     removePosters();
-}
+}*/
 
 $('#door1').click(function (e) { 
-    gotoEntryRoom();
+    //gotoEntryRoom();
+    location.reload();
     console.log('back');
 });
