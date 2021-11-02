@@ -33,7 +33,7 @@ function rightWall(contentNum,image_list){
     posX=(posX*image_width+(posX+1)*image_margin)/2;
     document.querySelector("#front-wall").setAttribute("position",{x:0,y:5,z:-(wallLength/2+0.01)});
     document.querySelector("#back-wall").setAttribute("position",{x:0,y:5,z:(wallLength/2+0.01)});
-    document.querySelector('#door1').setAttribute("position",{x:0,y:5,z:(wallLength/2)});
+    document.querySelector('#door1').setAttribute("position",{x:0,y:4,z:(wallLength/2)});
     for(var i=panels.length-contentNum;i<panels.length;i++){
         //console.log(i);
         var posZ=positionStart;
